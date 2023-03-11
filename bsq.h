@@ -19,12 +19,12 @@ typedef struct s_bsq{
     int size;//line side size
 }bsq;
 /*generate_field*/
-int gen_field(char *argv[]);
+int gen_field(int n, int m, int d);
 
 /*parse_input.c*/
 bool check_dimensions(char *n, char *m, char *d);
 bool check_if_num(char *num);
-bool get_dimensions(char *argv[],int *n, int *m);
+bool get_dimensions(char *argv[],int *n, int *m, int *d);
 bool valid_dimensions(char *argv[]);
 
 /*utility.c*/
