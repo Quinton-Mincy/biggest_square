@@ -47,11 +47,12 @@ int my_bsq(char *argv[]){
     /*get and confirm specified dimensions are valid*/
     int n;
     int m;
-    if(!get_dimensions(argv,&n,&m)){
+    int d;
+    if(!get_dimensions(argv,&n,&m,&d)){
         return EXIT_FAILURE;
     }
     /*generate text file with perl script*/
-    gen_field(argv);
+    gen_field(n,m,d);
     /*create and populate matrix, substituting obstacles (*) and open spaces with zeros and ones, respectively*/
     int fd = open("./square.txt",O_RDWR,0644);
     int** matrix = create_tabulation_matrix(n,fd);
