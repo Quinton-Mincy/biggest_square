@@ -15,7 +15,7 @@ void free_2d_arrays(int **matrix, char **grid, int n){
     free(grid);
     free(matrix);
 }
-int min(int arr[]){
+int min_sub_sqaure(int arr[]){
     int min = 10000;
     int index = 0;
     while(index < 3){
