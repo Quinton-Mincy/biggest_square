@@ -81,6 +81,8 @@ This numerical matrix is fed into the *maximal_square* function. This function i
 
 ### Tabulation 
 
+<img width="1021" alt="Screen Shot 2023-03-11 at 4 46 52 PM" src="https://user-images.githubusercontent.com/73136662/224513808-32bf48be-da48-4a37-aed9-adeee7668b56.png">
+
 As mentioned before, dynamic programming is a divide-and-strategy: to solve the complex problem, we solve a subset of simple problems, tabulating our results through each iteration.
 
 Another explanation of this problem with accompanying Java code is available at the leetcode editorial linked [here](https://leetcode.com/problems/maximal-square/editorial/). 
