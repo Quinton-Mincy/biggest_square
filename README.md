@@ -36,3 +36,6 @@ o . . . x x x o o .
 ```
 
 ## Getting Started
+
+Looking at the main function, we will not get too much information, as it just does a basic check if we have the right amount of command line arguments (CLAs).  The
+bulk of the logic lies within the *tabulate.c* folder, so that is where we will begin.
