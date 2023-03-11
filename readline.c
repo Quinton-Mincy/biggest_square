@@ -1,5 +1,5 @@
 #include "readline.h"
-queue *q = NULL;
+static queue *q = NULL;
 bool is_empty(queue* q){
     return !(q->size);
 }
