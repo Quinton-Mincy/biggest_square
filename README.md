@@ -75,6 +75,8 @@ oo..o...o.      ======= //         0011011101
 o...o.....                         0111011111 
 ```
 
+<img width="726" alt="Screen Shot 2023-03-11 at 4 46 27 PM" src="https://user-images.githubusercontent.com/73136662/224513783-c660f186-91a2-4c95-be41-0a751d72afe1.png">
+
 This numerical matrix is fed into the *maximal_square* function. This function initializes the 3 members of the *square_info* struct (*i*, *j*, and *size*) to zero: *i* and *j* representing the coordinates of the bottom right-hand corner of the supposed square (explained further below) and *size* representing the length of each side of the square. The tabulation of the matrix takes place row by row in the *update_matrix* function, which will be our main focus for the rest of the discussion.
 
 ### Tabulation 
