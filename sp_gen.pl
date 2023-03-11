@@ -11,20 +11,20 @@ if ((scalar @ARGV) != 3)
   exit;
 }
 
-my $x = $ARGV[0];
-my $y = $ARGV[1];
+my $n = $ARGV[0];#rows
+my $m = $ARGV[1];#columns
 my $density = $ARGV[2];
 my $i = 0;
 my $j = 0;
 my $filename = "square.txt";
 #print $y . "\n";
 open(my $fh, '>', $filename) or die "Could not open file ${filename} $!";
-while ($i < $y)
+while ($i < $n)
 {
   $j = 0;
-  while ($j < $x)
+  while ($j < $m)
   {
-    if (int(rand($y)*2) < $density)
+    if (int(rand($n)*2) < $density)
     {
       #print "o";
       print $fh "o";
