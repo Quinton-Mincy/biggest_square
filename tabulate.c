@@ -69,5 +69,10 @@ int my_bsq(char *argv[]){
     
     free_memory(grid_str,square_info,matrix,n);
     close(fd);
-    return 0;
+    /*Smallest possible square is 2x2*/
+    if(square_info->size < 2){
+        perror("No sqaure found");
+        return EXIT_FAILURE;
+    }
+    return EXIT_SUCCESS;
 }

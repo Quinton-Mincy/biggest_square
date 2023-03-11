@@ -23,7 +23,7 @@ bool get_dimensions(char *argv[],int *n, int *m, int *d){
     *m = atoi(argv[2]);
     *d = atoi(argv[3]);
      /*if n and m are unequal, equal to zero, or invlalid input (atoi returns zero to non-numerical characters)*/
-    if(*n != *m || (*n) * (*m) == 0){
+    if(*n != *m || *n <2){
         perror("Invalid dimensions");
         return false;
     }
