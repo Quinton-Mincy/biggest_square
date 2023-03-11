@@ -3,7 +3,7 @@
 
 ![Screen Shot 2023-03-10 at 8 44 16 PM](https://user-images.githubusercontent.com/73136662/224458228-d5dcfe9c-703d-4b2e-9113-c1170ca2b38d.png)
 
-## Overview 
+## Overview (In progress)
 
 For this project, we will first generate a text file that randomly places characters representing obstacles (o) and open spaces (.), and use
 a [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach called [tabulation](https://www.geeksforgeeks.org/tabulation-vs-memoization/).
@@ -38,7 +38,7 @@ o . . . x x x o o .
 
 ## Architecture
 
-Looking at the main function, we will not get too much information, as it just does a basic check to see if the user has provided the right amount 
+Looking at the main function in *my_bsq.c*, we will not get too much information, as it just does a basic check to see if the user has provided the right amount 
 of command line arguments (CLAs).  The bulk of the logic lies within the *tabulate.c* file, so that is where we will begin.
 
 The *my_bsq* function will be the main driver of this program. It starts by calling the *get_dimensions* function. This function (along with its
@@ -55,3 +55,30 @@ Once we have the necessary parameters, we pass them to *gen_field* which execute
 The perl script to generate the text file is quite simple. For every coordinate in a *n*x*m* grid, a character representing an obstacle (o) or an open space (.) is placed. The frequency that an obstacle versus an open space is written to *sqaure.txt* is determined by the density. Using the perl *rand* function, a value between zero and *n* (number of rows) is multiplied by 2. If the product of this is less than the density, then an obstacle is place. If the product is greater than the density, an open space is instead written to *square.txt*. This result of this configuration is that a higher user specified density correlates to more obstacles being placed. If taken to the extreme, say with a density of zero, no obstacles will be placed, and the entire grid will be interpreted as the square (left). Contrastly, if a density twice the value of the number of rows (or columns) will result in only obstacles being placed (right).
 
 <img width="1132" alt="Screen Shot 2023-03-11 at 2 58 24 PM" src="https://user-images.githubusercontent.com/73136662/224509151-c6cbc53f-1794-438b-9809-9ff76247d552.png">
+
+### The Algorithm
+
+After the text file is synthesized, it is converted into a 2D matrix of integers, representing obstacles as zero and free spaces as one. This step is not strictly necessary, but we have done so in this implementation to make the problem into a classic example of the maximal square submatrix. This transformation is visualized below.
+
+```
+.o.....o.o                         1011111010 
+...o....o.                         1110111101
+........oo            \\           1111111100
+..o..oo...             \\          1101100111
+ooo.......      ======= \\         0001111111
+oo..o...o.      ======= //         0011011101
+.o.......o             //          1011111110          
+..oo......            //           1100111111
+.........o                         1111111110
+o...o.....                         0111011111 
+```
+
+This numerical matrix is fed into the *maximal_square* function. This function initializes the 3 members of the *square_info* struct (*i*, *j*, and *size*) to zero: *i* and *j* representing the coordinates of the bottom right-hand corner of the supposed square (explained further below) and *size* representing the length of each side of the square. The tabulation of the matrix takes place row by row in the *update_matrix* function, which will be our main focus for the rest of the discussion.
+
+### Tabulation 
+
+As mentioned before, dynamic programming is a divide-and-strategy: to solve the complex problem, we solve a subset of simple problems, tabulating our results through each iteration.
+
+Another explanation of this problem with accompanying Java code is available at the leetcode editorial linked [here](https://leetcode.com/problems/maximal-square/editorial/). 
+
+## Summary
