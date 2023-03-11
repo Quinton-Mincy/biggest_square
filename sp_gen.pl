@@ -12,7 +12,7 @@ my $density = $ARGV[2];
 my $i = 0;
 my $j = 0;
 my $filename = "square.txt";
-print $y . "\n";
+#print $y . "\n";
 open(my $fh, '>', $filename) or die "Could not open file ${filename} $!";
 while ($i < $y)
 {
@@ -21,17 +21,17 @@ while ($i < $y)
   {
     if (int(rand($y)*2) < $density)
     {
-      print "o";
+      #print "o";
       print $fh "o";
     }
     else
     {
-      print ".";
+      #print ".";
       print $fh ".";
     }
     $j++;
   }
-  print "\n";
+  #print "\n";
   print $fh "\n";
   $i++;
 }
