@@ -15,12 +15,13 @@ memory.
 
 Run it yourself:
 ---------------------- Tested on MacOS (should work in Linux)
----------------------- Not yet tested on Windows
+---------------------- Windows Compatable. Windows makefile available in windows_makefile directory.
 ```
 >$ git clone https://github.com/Quinton-Mincy/biggest_square.git
 >$ cd biggest_sqaure
 >$make
->$ ./my_bsq 10 10 5
+>$make clean
+>$ ./my_bsq 10 10 5 (.\my_bsq.exe 10 10 5 on windows)
 {size: 3x3,i: 7,j: 6}
 
 . . . . o . . o . o 

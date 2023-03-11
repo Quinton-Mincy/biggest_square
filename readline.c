@@ -1,9 +1,15 @@
 #include "readline.h"
-
+queue *q = NULL;
 bool is_empty(queue* q){
     return !(q->size);
 }
-
+void clear_buffer(char *buffer,int clearance){
+    int i  = 0;
+    while(i<clearance){
+        buffer[i] = '\0';
+        i++;
+    }
+}
 void init_queue(){
     q = malloc(sizeof(queue));
     // bzero(q->array,128);
@@ -13,7 +19,7 @@ void init_queue(){
     q->tail = 0;
     q->leftover_size = 0;
     q->max_size = 1024;
-    bzero(q->array,1024);
+    clear_buffer(q->array,1024);
     q->leftover = NULL;
 }
 int check_for_nl(char* buffer, int ret){
@@ -75,7 +81,7 @@ char* my_readline(int fd){
             }
             enqueue(q->leftover,nl_loc);
             end_str = dequeue();
-            bzero(q->leftover,q->leftover_size);
+            clear_buffer(q->leftover,q->leftover_size);
             free(q->leftover);
             q->leftover_size = 0;
             q->leftover = NULL;
@@ -100,7 +106,7 @@ char* my_readline(int fd){
     }
     int ret = 0;
     char buffer[READLINE_READ_SIZE+1];//make sure always null terminated
-    bzero(buffer,READLINE_READ_SIZE+1);
+    clear_buffer(buffer,READLINE_READ_SIZE+1);
     int i = 0;
     
     while( (ret = read(fd,&buffer,READLINE_READ_SIZE)) !=0){
@@ -128,7 +134,7 @@ char* my_readline(int fd){
             break;
         }
         //////////////can make this into an array of struct funcitons
-        bzero(buffer,READLINE_READ_SIZE+1);
+        clear_buffer(buffer,READLINE_READ_SIZE+1);
         i++;
     }
     if( (ret == 0 && i == 0)){

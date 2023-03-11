@@ -1,9 +1,17 @@
 #ifndef MY_BSQ
 #define MY_BSQ
-#include "readline.h"
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+
+#include <stdio.h>
+
+#include <sys/types.h>
+// #include <sys/uio.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct s_bsq{
     int i;//row coordinate

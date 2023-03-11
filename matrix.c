@@ -1,4 +1,6 @@
 #include "bsq.h"
+#include "readline.h"
+
 int** create_tabulation_matrix(int n, int fd){
     int** matrix = malloc(sizeof(int*)*n);
     populate_matrix(matrix,n,fd);

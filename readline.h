@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <sys/uio.h>
+// #include <sys/uio.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
@@ -25,7 +25,7 @@ typedef struct s_queue{
     char* leftover;
 }queue;
 
-queue* q;
+ 
 
 bool is_empty(queue* q);
 void init_queue();
@@ -34,5 +34,6 @@ void enqueue(char* char_block, int end);
 char* dequeue();
 void init_my_readline();
 char* my_readline(int fd);
+void clear_buffer(char *buffer,int clearance);
 
 #endif
