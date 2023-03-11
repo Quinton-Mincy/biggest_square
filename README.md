@@ -41,6 +41,8 @@ o . . . x x x o o .
 Looking at the main function in *my_bsq.c*, we will not get too much information, as it just does a basic check to see if the user has provided the right amount 
 of command line arguments (CLAs).  The bulk of the logic lies within the *tabulate.c* file, so that is where we will begin.
 
+<img width="986" alt="Screen Shot 2023-03-11 at 3 28 55 PM" src="https://user-images.githubusercontent.com/73136662/224513689-8c66b57c-fc22-4258-baad-88a497a6dc8d.png">
+
 The *my_bsq* function will be the main driver of this program. It starts by calling the *get_dimensions* function. This function (along with its
 accompyanning functions) are available in the *parse_input.c* file. As you can guess from the name of this file, we are parsing the CLAs to, firstly,
 check that they have provided 3 non-negative, non-zero (well the third argument can be zero, which we will discuss) integers. If valid arguments have
