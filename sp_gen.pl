@@ -1,3 +1,8 @@
+#Script written by Gaetan Juvin: https://github.com/GaetanJUVIN
+#Edited by Quinton Mincy
+#Edits: Output the randomly generated characters to a text file
+#
+
 #!/usr/bin/perl -w
 
 if ((scalar @ARGV) != 3)
