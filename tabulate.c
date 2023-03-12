@@ -58,6 +58,11 @@ int my_bsq(char *argv[]){
     int** matrix = create_tabulation_matrix(n,fd);
     /*use dynamic programming tabulation to transform the matrix and find largest square */
     bsq* square_info = maximal_square(matrix,n,m);
+    /*Smallest possible square is 2x2*/
+    if(square_info->size < 2){
+        perror("No sqaure found");
+        return EXIT_FAILURE;
+    }
     /*print dimensions and coordinate of square (bottom right corner)*/
     printf("{size: %dx%d,i: %d,j: %d}\n",square_info->size,square_info->size,square_info->i,square_info->j);
     //print_matrix(matrix,n,m);
@@ -69,10 +74,5 @@ int my_bsq(char *argv[]){
     
     free_memory(grid_str,square_info,matrix,n);
     close(fd);
-    /*Smallest possible square is 2x2*/
-    if(square_info->size < 2){
-        perror("No sqaure found");
-        return EXIT_FAILURE;
-    }
     return EXIT_SUCCESS;
 }
