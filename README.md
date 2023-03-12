@@ -6,7 +6,7 @@
 ## Overview (In progress)
 
 For this project, we will first generate a text file that randomly places characters representing obstacles (o) and open spaces (.), and use
-a [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach called [tabulation](https://www.geeksforgeeks.org/tabulation-vs-memoization/).
+a [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach called [tabulation](https://www.geeksforgeeks.org/tabulation-vs-memoization/) to find the largest contiguous sqaure of open spaces.
 This dynamic programming technique is known as a *bottom up* approach, meaning that we iteratively break a problem into simple subproblems, and use our solutions
 to inform the answer to the original, more complex problem. With tabulation in particular, the results to these subproblems are usually stored in an intermediate
 data structure such as an array or matrix, or, as my implementation does, update the given data structure directly. A *top down* approach called *memoization* 
