@@ -86,7 +86,7 @@ This numerical matrix is fed into the *maximal_square* function. This function i
 As mentioned before, dynamic programming is a divide-and-strategy: to solve the complex problem, we solve a subset of simple problems, tabulating our results through each iteration. For this implementation, before we list out our subproblems, we must lay out a few assumptions.
 
 ```
-<u>Assumptions</u>
+Assumptions
 
     1.  Each point in the matrix will be regarded as the bottom right-hand corner of a potential square.
         The smallest square possible is a 2x2, as we will not count a single point as a square. In this 2x2 square,
@@ -109,6 +109,7 @@ Looking at the depiction of a 30x30 field of points below, on the left we see th
 <p float="left">
   <img width="305" alt="Screen Shot 2023-03-11 at 4 47 28 PM" src="https://user-images.githubusercontent.com/73136662/224513890-1db0c270-84a4-4d5a-ad5f-f4e65301a955.png">
   <img width="305" alt="Screen Shot 2023-03-11 at 4 48 01 PM" src="https://user-images.githubusercontent.com/73136662/224513894-e0498bd2-b65d-42cd-97db-9d03828015ff.png">
+  <img width="305" alt="Screen Shot 2023-03-11 at 4 48 01 PM" src="https://user-images.githubusercontent.com/73136662/224519681-5fc9d7fe-81d7-4373-89bd-12fa96e77bc6.png">
 </p>
 
 ## Summary
