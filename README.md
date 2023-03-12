@@ -83,13 +83,30 @@ This numerical matrix is fed into the *maximal_square* function. This function i
 
 <img width="1021" alt="Screen Shot 2023-03-11 at 4 46 52 PM" src="https://user-images.githubusercontent.com/73136662/224513808-32bf48be-da48-4a37-aed9-adeee7668b56.png">
 
-As mentioned before, dynamic programming is a divide-and-strategy: to solve the complex problem, we solve a subset of simple problems, tabulating our results through each iteration.
+As mentioned before, dynamic programming is a divide-and-strategy: to solve the complex problem, we solve a subset of simple problems, tabulating our results through each iteration. For this implementation, before we list out our subproblems, we must lay out a few assumptions.
+
+```
+<u>Assumptions</u>
+
+    1.  Each point in the matrix will be regarded as the bottom right-hand corner of a potential square.
+        The smallest square possible is a 2x2, as we will not count a single point as a square. In this 2x2 square,
+        there are no "sides", just 4 corners, so to interpret these 4 adjacent points as a square, we must use one of the corners as a point of reference. Since we choose each point to be the bottom right-hand corner of a potential sqaure, we can ignore the points in the first row because they cannot meet the minimum requirements of a square we just outlined. We can arbitrrily choose which corner of a square to treat each point as, it will just change which row/column that we will ignore. For example, if a point is treated as the top left corner, we can ignore the bottom row and rightmost column. Convince yourself of this.
+
+    2.  Any square that contains an obstacle (a zero) can be ignored, as our definition of a sqaure is a contiguous
+        block of open spaces (ones) of equal length and width.  
+```
+
+Making these assumptions, we can apply a suprisingly simple algorithm. Starting at the coordinate *{1,1}*, we look at the 3 adjacent "corners" in the directional order: above, oblique, and to the left. We then simply determine the minimum value of these 3 coordinates, add one, and update the current node with the calculate value... and thats it. 
+
+To clarify our second assumption, we ignore a point with the value of zero if it is being considered as the bottom right-hand corner of a potential square. Furthermore, if a point adjacent to a corner being evaluated is zero, the current point cannot be the bottom right-and corner of a sqaure. So we will maintain the value of the current point as 1 by adding 1 to the minimum value of the adjacent coordinates (zero). This is important because this point can still be a member of a square further down the line. 
+
+In the case where all adjacent neighbors hold a value of one or greater, say all ones for example, the current point will be updated to a value of 2, reflecting the fact it is the bottom right-hand corner of a 2x2 sqaure. Continuing with this pattern, if we come across a corner whose neighbors are all 2, we can insinuate that we are currently at the corner of a 3x3 square The image below further clarifies how this pattern is implemented. The source of this diagram is linked [here](https://leetcode.com/problems/maximal-square/editorial/) with an accompyaning explanation and implemenation of this algorithm in Java.
+
+This image summarizes the points we just covered. The red highlight shows that a point adjacent to a zero will maintain its value in one; not also that any sqaure with a value of zero remains unchanged. The green highlight showing a corner with neighbors all of value 2 will be 3, and each of those neighbors all have neighbors of at least a value of 1. It is shown in yellow that although 2 adjacent values of the point in question are 3, the minimum value is 1, so the maximum sqaure sub-matrix at that point is a 2x2 sqaure. 
 
 <p float="left">
   <img width="305" alt="Screen Shot 2023-03-11 at 4 47 28 PM" src="https://user-images.githubusercontent.com/73136662/224513890-1db0c270-84a4-4d5a-ad5f-f4e65301a955.png">
   <img width="305" alt="Screen Shot 2023-03-11 at 4 48 01 PM" src="https://user-images.githubusercontent.com/73136662/224513894-e0498bd2-b65d-42cd-97db-9d03828015ff.png">
 </p>
-
-Another explanation of this problem with accompanying Java code is available at the leetcode editorial linked [here](https://leetcode.com/problems/maximal-square/editorial/). 
 
 ## Summary
