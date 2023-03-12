@@ -1,7 +1,7 @@
 # Biggest Square
 ## A dynamic programming approach
 
-![Screen Shot 2023-03-10 at 8 44 16 PM](https://user-images.githubusercontent.com/73136662/224458228-d5dcfe9c-703d-4b2e-9113-c1170ca2b38d.png)
+<img width="706" alt="Screen Shot 2023-03-11 at 10 07 40 PM" src="https://user-images.githubusercontent.com/73136662/224522006-547cdd48-43d6-4654-b0ec-af0e55b70843.png">
 
 ## Overview (In progress)
 
