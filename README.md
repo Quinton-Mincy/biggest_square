@@ -3,7 +3,7 @@
 
 <img width="706" alt="Screen Shot 2023-03-11 at 10 07 40 PM" src="https://user-images.githubusercontent.com/73136662/224522006-547cdd48-43d6-4654-b0ec-af0e55b70843.png">
 
-## Overview (In progress)
+## Overview
 
 For this project, we will first generate a text file that randomly places characters representing obstacles (o) and open spaces (.), and use
 a [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) approach called [tabulation](https://www.geeksforgeeks.org/tabulation-vs-memoization/) to find the largest contiguous square of open spaces.
