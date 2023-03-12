@@ -117,7 +117,7 @@ Looking at the depiction of a 30x30 field of points below, on the left we see th
 
 ## Complexity
 
-The space complexity and time complexity of this algorithm is O(n*m), where n*m is the toal number of points on the input matrix. Our algorithm allocates a matrix of size n*m and visits each point one time. In practice, this will result in a O(n<sup>2</sup>) complexity because the grid needs to be a square, so for a valid coordinate plane, *n* will always equal *m.  
+The space complexity and time complexity of this algorithm is O(n*m), where n*m is the toal number of points on the input matrix. Our algorithm allocates a matrix of size n*m and visits each point one time. In practice, this will result in a O(n<sup>2</sup>) complexity because the grid needs to be a square, so for a valid coordinate plane, *n* will always equal *m*.  
 
 ## Summary
 
